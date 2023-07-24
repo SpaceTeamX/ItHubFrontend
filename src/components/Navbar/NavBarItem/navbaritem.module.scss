@@ -1,0 +1,38 @@
+.wrapper {
+  display: block;
+  border-radius: 12px;
+  padding: 0 15px;
+  width: 100%;
+  border: 2px solid transparent;
+  .btn {
+    display: flex;
+    width: 60%;
+    height: 50px;
+    margin-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    p {
+      margin-left: 20px;
+    }
+  }
+}
+
+.active {
+  display: block;
+  border-radius: 12px;
+  padding: 0 15px;
+  width: 100%;
+  background: #fff;
+  border: 2px solid #eaeaea;
+  margin-bottom: 10px;
+  .btn {
+    display: flex;
+    width: 60%;
+    height: 50px;
+    align-items: center;
+    cursor: pointer;
+    p {
+      margin-left: 20px;
+    }
+  }
+}
