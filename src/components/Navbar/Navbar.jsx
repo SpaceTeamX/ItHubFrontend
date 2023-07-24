@@ -4,10 +4,10 @@ import style from './navbar.module.scss'
 const Navbar = () => {
 
   const navList = [
-    { name: 'Новости', img: '/public/assets/Iconly/Light outline/Calendar.svg' },
-    { name: 'Статьи', img: '/public/assets/Iconly/Light outline/Document.svg' },
-    { name: 'Резюме', img: '/public/assets/Iconly/Light-Outline/Work.svg' },
-    { name: 'Видео', img: '/public/assets/Video.svg' },
+    { name: 'Новости', link: '/', img: '/public/assets/Iconly/Light outline/Calendar.svg' },
+    { name: 'Статьи', link: '/articles', img: '/public/assets/Iconly/Light outline/Document.svg' },
+    { name: 'Резюме', link: '/resume', img: '/public/assets/Iconly/Light-Outline/Work.svg' },
+    { name: 'Видео', link: '/video', img: '/public/assets/Video.svg' },
   ]
 
 
