@@ -1,0 +1,16 @@
+.content {
+  width: 880px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 270px);
+  justify-content: space-between;
+  flex-flow: wrap;
+  row-gap: 30px;
+
+  .card {
+    width: 270px;
+    height: 220px;
+    background: #fff;
+    border-radius: 12px;
+    border: 2px solid #eaeaea;
+  }
+}
