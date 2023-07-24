@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Filters from './Filters/Filters'
 import Logo from './Logo/Logo'
 import style from './header.module.scss'
@@ -7,7 +8,12 @@ const Header = () => {
     <div className={style.header}>
       <Logo />
       <Filters />
-      <div className={style.login}>Войти</div>
+      <Link to='/singup'>
+        <div className={style.login}>
+          <img src="/assets/user.svg" alt="" />
+          <p>Войти</p>
+        </div>
+      </Link>
     </div >
   )
 }
