@@ -1,0 +1,30 @@
+.filters{
+    display: flex;
+    width: 880px;
+    max-height: 45px;
+    justify-content: space-between;
+    align-items: center;
+    .categories{
+        display: flex;
+        width: 330px;
+        padding: 10px 0;
+        background: #fff;
+        border-radius: 16px;
+    }
+    .search{
+        display: flex;
+        width: 300px;
+        padding: 10px 0;
+        background: #fff;
+        border-radius: 16px;
+
+    }
+    .filter{
+        display: flex;
+        width: 161px;
+        padding: 10px 0;
+        background: #fff;
+        border-radius: 16px;
+
+    }
+}
