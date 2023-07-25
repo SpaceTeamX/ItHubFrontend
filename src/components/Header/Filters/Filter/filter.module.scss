@@ -1,0 +1,16 @@
+.filter {
+    display: flex;
+    width: 120px;
+    padding: 12px 0;
+    background: #fff;
+    border-radius: 12px;
+    border: 2px solid #eaeaea;
+    justify-content: center;
+    p{
+      margin-top: 2px;
+      margin-left: 10px;
+    }
+    img {
+     width: 23px;
+      }
+  }

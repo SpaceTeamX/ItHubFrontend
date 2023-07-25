@@ -1,18 +1,16 @@
 import style from './filters.module.scss'
+import Categories from './Categories/Categories'
+import Search from './Search/Search'
+import Filter from './Filter/Filter'
 
 const Filters = () => {
     return (
         <div className={style.filters}>
-            <div className={style.categories}>
-                <div className={style.wrapper}>
-                    <div className={style.popular}>popular</div>
-                </div>
-                <div className={style.wrapper}>
-                    <div className={style.new}>new</div>
-                </div>
+            <div className={style.wrapper}>
+                <Categories />
+                <Search />
             </div>
-            <div className={style.search}>search</div>
-            <div className={style.filter}>filter</div>
+            <Filter />
         </div>
     )
 }

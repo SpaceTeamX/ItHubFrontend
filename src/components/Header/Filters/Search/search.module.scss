@@ -1,0 +1,27 @@
+.searchWrapper {
+    display: flex;
+    border-radius: 12px;
+    height: 45px;
+
+    input {
+      max-height: 45px;
+      width: 200px;
+      padding: 10px 10px;
+      background: #fff;
+      border-radius: 12px 0 0 12px;
+      border: 2px solid #eaeaea;
+    }
+    .magnifier {
+      display: flex;
+      width: 50px;
+      background-color: #00acff;
+      border-radius: 0 12px 12px 0;
+      margin-left: -3px;
+      cursor: pointer;
+
+      img {
+        width: 25px;
+        margin: 0 auto;
+      }
+    }
+  }
