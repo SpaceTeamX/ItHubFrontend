@@ -17,14 +17,16 @@
     cursor: pointer;
     z-index: 999; 
     margin-top: 50px;
-    margin-left: -8px;
   
     .btn {
       display: flex;
       padding: 12px 0;
       align-items: center;
+      margin-left: -15px;
       justify-content: center;
     }
+
+
     p{
       margin-left: 10px;
       margin-bottom:0;
