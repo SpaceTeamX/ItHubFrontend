@@ -1,14 +1,18 @@
 import style from './filters.module.scss'
+import popular from '/assets/fire-square-svgrepo-com 1.svg'
+import clock from '/assets/clock.svg'
 
 const Filters = () => {
     return (
         <div className={style.filters}>
             <div className={style.categories}>
-                <div className={style.wrapper}>
-                    <div className={style.popular}>popular</div>
+                <div className={style.active}>
+                    <img className={style.popular} src={popular} alt="popular" />
+                    <p>Популярное</p>
                 </div>
                 <div className={style.wrapper}>
-                    <div className={style.new}>new</div>
+                    <img className={style.clock} src={clock} alt="clock" />
+                    <p>Новое</p>
                 </div>
             </div>
             <div className={style.search}>search</div>
