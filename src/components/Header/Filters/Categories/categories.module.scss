@@ -1,0 +1,49 @@
+.categories {
+    display: flex;
+    width: 300px;
+    max-height: 45px;
+    padding: 6px 0;
+    background: #fff;
+    border-radius: 12px;
+    border: 2px solid #eaeaea;
+    justify-content: space-around;
+    .wrapper {
+      display: flex;
+      align-items: center;
+      border-radius: 7px;
+      padding: 5px 19px;
+      cursor: pointer;
+      p {
+        margin-top: 2px;
+        margin-left: 10px;
+      }
+      img {
+        .popular {
+          width: 25px;
+        }
+        .clock {
+          width: 23px;
+        }
+      }
+    }
+    .active {
+      display: flex;
+      align-items: center;
+      border-radius: 7px;
+      padding: 5px 19px;
+      background: #e6e7e7;
+      cursor: pointer;
+      p {
+        margin-top: 2px;
+        margin-left: 10px;
+      }
+      img {
+        .popular {
+          width: 25px;
+        }
+        .clock {
+          width: 23px;
+        }
+      }
+    }
+  }
