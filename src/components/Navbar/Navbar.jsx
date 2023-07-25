@@ -17,7 +17,7 @@ const Navbar = () => {
       <button className={style.writePostButton}>
         <div className={style.btn}>
           <img src="/public/assets/newpost.svg" alt="pen" /> 
-          <p> Написать пост</p>
+          <p>Написать пост</p>
         </div>
       </button>
     </div>
