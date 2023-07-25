@@ -1,20 +1,94 @@
-import style from './singup.module.scss'
-import { useNavigate } from 'react-router-dom';
-
-
+import style from "./singup.module.scss";
+// import { useNavigate } from "react-router-dom";
+import desktop from '../../../../public/assets/Iconly/Light-Outline/Desktop.png';
+import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.svg';
+import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
+import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
+import userIcon from '../../../../public/assets/Iconly/Light-Outline/user.svg';
+import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
+import Confetti from "react-confetti"; 
+import Logo from "../../Header/Logo/Logo";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Singup = () => {
-  const navigate = useNavigate(); 
+  // const navigate = useNavigate();
+  const { register, handleSubmit ,formState: { errors }} = useForm();
+  const [data, setData] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false); 
+  const [showConfetti, setShowConfetti] = useState(false);
+  
 
-  const handleLoginClick = () => {
-    navigate('/');
+  const handleConfettiClick = () => {
+    setShowConfetti(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+    },10000);
   };
+  
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevVisible) => !prevVisible);
+    console.log(data);
+  };
+
+
+
+  // const handleLoginClick = () => {
+  //   navigate('/');
+  // };
 
   return (
     <div className={style.singup}>
-      <div onClick={handleLoginClick}>Go back</div>
-    </div>
-  )
-}
+      <div className={style.singupContent}>
+        <div className={style.form}>
+          <Logo />
+          <span className={style.HelloProgram}>Привет Программист!</span>
+          <form
+            action="post"
+            onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
+            className={style.formInputs}
+          >
+            {errors.Name && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
+            <div className={style.inputContainer}>
+              <div className={style.iconContainer}>
+                <img src={userIcon} alt="userIcon" />
+              </div>
+              <input type="text" {...register("Name", { required: true })} className={style.inputss} placeholder="Name"/>
+            </div>
 
-export default Singup
+            {errors.Email && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
+            <div className={style.inputContainer}>
+              <div className={style.iconContainer}>
+                <img src={mailIcon} alt="Mail Icon" />
+              </div>
+              <input type='email' {...register("Email", { required: true })} className={style.inputss} placeholder="Почта"/>
+            </div>
+
+            {errors.Password && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
+            <div className={style.inputContainer}>
+              <div className={style.iconContainer}>
+                <img src={lockIcon} alt="lockIcon" className={style.eye} />
+              </div>
+              <input type={passwordVisible ? "text" : "password"} {...register("Password", { required: true })} className={style.inputss} placeholder="Пароль" />
+              <button className={style.iconContainerEye} onClick={togglePasswordVisibility}>
+                <img src={passwordVisible ? eyeOnIcon : eyeoffIcon} alt="eyeoffIcon" className={style.eye} />
+              </button>
+            </div>
+            <div className={style.CheckBox} >
+              <span className={style.Info}><input type="checkbox"/>Я прочитал и согласен с <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" onClick={handleConfettiClick}>Условиями использования</a> </span>
+            </div>
+            <div className={style.ButtonContainer}>
+            <button type="submit"  className={style.CreateAccount}>Создать аккаунт</button>
+            </div>
+          </form>
+        </div>
+        <div className={style.imgContainer}>
+          <img src={desktop} alt="" />
+        </div>
+        {showConfetti && <Confetti />}
+      </div>
+    </div>
+  );
+};
+
+export default Singup;

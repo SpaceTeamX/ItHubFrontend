@@ -1,0 +1,137 @@
+.singup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 36px;
+    background-color: #FFFFFF;
+    
+    .singupContent{
+        display: grid;
+        width: 1600px;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .imgContainer{
+        img{
+            border-top-right-radius: 36px;
+            border-bottom-right-radius: 36px;
+        }
+    }
+    .form {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: space-between;
+        width: 620px;
+        height:420px;
+        margin:50px 100px;
+
+        .HelloProgram{
+            font-size: 35px;
+            margin: 50px;
+            font-weight: bold;
+            color: #464646;
+        }
+    }
+    .formInputs {
+        display: flex;
+        flex-direction: column; 
+ 
+        .errorsField{
+            color: red;
+        }
+        .inputss{
+            width: 450px;
+            height: 55px;
+            border-radius: 48px;
+            font-size: 20px;
+            font-weight: bold;
+            padding:0 40px;
+            border: 0.3px solid black;
+        }
+    }
+}
+
+.inputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .iconContainer  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; 
+    height: 100%;
+    padding: 10px;
+    margin-top: -11px;
+    position: absolute;
+    top: 0;
+    left: 50;
+  }
+  
+  .iconContainer img {
+    width: 20px; 
+    height: 20px;
+    pointer-events: none; 
+  }
+  
+  .inputContainer input {
+    padding-left: 0px; 
+  }
+
+.iconContainerEye{
+    background-color: transparent ;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+}
+  
+.CheckBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: 20px;
+
+
+    input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+    }
+    .Info{
+        font-size: 20px;
+    }
+    a{
+        color:#00507C;
+    }
+}  
+.ButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    
+    .CreateAccount{
+        font-size: 25px;
+        font-weight: 500;
+        padding: 15px;
+        cursor: pointer;
+        color: #FFFFFF  ;
+        border: 1px solid  transparent;
+        border-radius: 30px;
+        background-color: #00ACFF;
+    }
+    
+    
+} 
