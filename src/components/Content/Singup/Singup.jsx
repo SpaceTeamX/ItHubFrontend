@@ -1,5 +1,5 @@
 import style from "./singup.module.scss";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import desktop from '../../../../public/assets/Iconly/Light-Outline/Desktop.png';
 import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.svg';
 import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Singup = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { register, handleSubmit ,formState: { errors }} = useForm();
   const [data, setData] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false); 
@@ -33,9 +33,9 @@ const Singup = () => {
 
 
 
-  // const handleLoginClick = () => {
-  //   navigate('/');
-  // };
+  const handleLoginClick = () => {
+    navigate('/');
+  };
 
   return (
     <div className={style.singup}>
@@ -78,7 +78,7 @@ const Singup = () => {
               <span className={style.Info}><input type="checkbox"/>Я прочитал и согласен с <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" onClick={handleConfettiClick}>Условиями использования</a> </span>
             </div>
             <div className={style.ButtonContainer}>
-            <button type="submit"  className={style.CreateAccount}>Создать аккаунт</button>
+            <button type="submit" onClick={handleLoginClick}  className={style.CreateAccount}>Создать аккаунт</button>
             </div>
           </form>
         </div>
