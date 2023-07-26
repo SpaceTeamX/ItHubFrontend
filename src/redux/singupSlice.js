@@ -4,14 +4,15 @@ import axios from "axios";
 export const axiosSingUp = createAsyncThunk(
   "singup/axiosSingUpData",
   async (data) => {
-    const response = await axios.get(`api`);
+    console.log(data)
+    const response = await axios.post('https://64c13d00fa35860baea0471b.mockapi.io/cats', data);
     return response.data;
   }
 );
 
 const initialState = {
   userData: "",
-  success: false,
+  islogin: false,
   status: "loading",
 };
 
@@ -42,3 +43,6 @@ const singUpSice = createSlice({
 
 export const { setSingUpData } = singUpSice.actions;
 export default singUpSice.reducer;
+
+
+// При нажатии на войти будет отправка данных loading... и потом если успешно -> окно и редирект в профиль или основную станицу

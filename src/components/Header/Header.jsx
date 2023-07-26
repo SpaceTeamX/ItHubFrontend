@@ -4,10 +4,11 @@ import Filters from './Filters/Filters'
 import Logo from './Logo/Logo'
 import userIcon from '../../../public/assets/Iconly/Light outline/userIcon.png'
 import style from './header.module.scss'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
+  const { islogin } = useSelector(state => state.singup)
   const handleLoginClick = () => {
     navigate('/login');
   };
@@ -16,7 +17,11 @@ const Header = () => {
     <div className={style.header}>
       <Logo />
       <Filters />
-      <div className={style.login} onClick={handleLoginClick}><img src={userIcon} alt="user" /> Войти</div>
+      {islogin ? <p>User</p> :
+        <div className={style.login} onClick={handleLoginClick}>
+          <img src={userIcon} alt="user" />
+          <p>Войти</p>
+        </div>}
     </div>
   )
 }

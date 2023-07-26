@@ -10,6 +10,9 @@ import Confetti from "react-confetti";
 import Logo from "../../Header/Logo/Logo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { axiosSingUp } from "../../../redux/singupSlice";
 
 const Singup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -17,6 +20,7 @@ const Singup = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
 
+  const dispatch = useDispatch()
 
   const handleConfettiClick = () => {
     setShowConfetti(true);
@@ -27,14 +31,12 @@ const Singup = () => {
 
   const togglePasswordVisibility = () => {
     setPasswordVisible((prevVisible) => !prevVisible);
-    console.log(data);
   };
 
   const onSubmit = (data) => {
-    setData(data)
-
+    dispatch(axiosSingUp(data))
   }
-  console.log(data)
+  
 
 
 
@@ -51,12 +53,12 @@ const Singup = () => {
             onSubmit={handleSubmit(onSubmit)}
             className={style.formInputs}
           >
-            {errors.login && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
+            {errors.username && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
             <div className={style.inputContainer}>
               <div className={style.iconContainer}>
                 <img src={userIcon} alt="userIcon" />
               </div>
-              <input type="text" {...register("login", { required: true })} className={style.inputss} placeholder="Логин" />
+              <input type="text" {...register("username", { required: true })} className={style.inputss} placeholder="Логин" />
             </div>
 
             {errors.email && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
