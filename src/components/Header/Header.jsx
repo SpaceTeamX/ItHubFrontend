@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate(); 
 
   const handleLoginClick = () => {
-    navigate('/singup');
+    navigate('/login');
   };
 
   return (

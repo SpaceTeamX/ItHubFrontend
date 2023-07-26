@@ -9,23 +9,27 @@ import style from './app.module.scss';
 import Video from './components/Content/Video/Video';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
+import Login from './components/Content/Login/Login';
+
 
 const App = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
-  const isSingupPage = location.pathname === '/singup'; 
+  const isSingupPage = location.pathname === '/singup';
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <div className={style.app}>
-      {!isSingupPage && <Header />} 
+      {!isSingupPage && !isLoginPage && <Header />}
       <div className={style.main}>
-        {!isSingupPage && <Navbar />} 
+        {!isSingupPage && !isLoginPage && <Navbar />}
         <Routes>
           <Route path='/' element={<News />} />
           <Route path='/articles' element={<Articles />} />
           <Route path='/resume' element={<Vacancy />} />
           <Route path='/video' element={<Video />} />
           <Route path='/singup' element={<Singup />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </div>
     </div>

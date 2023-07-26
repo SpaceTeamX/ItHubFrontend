@@ -1,29 +1,24 @@
-import style from "./singup.module.scss";
+import style from "./login.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import desktop from '../../../../public/assets/Iconly/Light-Outline/Desktop.png';
 import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.svg';
 import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
 import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
-import userIcon from '../../../../public/assets/Iconly/Light-Outline/user.svg';
 import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
-import Confetti from "react-confetti";
 import Logo from "../../Header/Logo/Logo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const Singup = () => {
+const Login = () => {
+
+  const navigate = useNavigate()
+  
+  const handleClickCreate = () => {
+    navigate('/singup')
+  }
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-
-
-  const handleConfettiClick = () => {
-    setShowConfetti(true);
-    setTimeout(() => {
-      setShowConfetti(false);
-    }, 10000);
-  };
 
   const togglePasswordVisibility = () => {
     setPasswordVisible((prevVisible) => !prevVisible);
@@ -32,11 +27,9 @@ const Singup = () => {
 
   const onSubmit = (data) => {
     setData(data)
-
   }
+
   console.log(data)
-
-
 
   return (
     <div className={style.singup}>
@@ -45,20 +38,12 @@ const Singup = () => {
           <Link to='/'>
             <Logo />
           </Link>
-          <span className={style.HelloProgram}>Привет Программист!</span>
+          <span className={style.HelloProgram}>Авторизация</span>
           <form
             action="post"
             onSubmit={handleSubmit(onSubmit)}
             className={style.formInputs}
           >
-            {errors.login && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
-            <div className={style.inputContainer}>
-              <div className={style.iconContainer}>
-                <img src={userIcon} alt="userIcon" />
-              </div>
-              <input type="text" {...register("login", { required: true })} className={style.inputss} placeholder="Логин" />
-            </div>
-
             {errors.email && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
             <div className={style.inputContainer}>
               <div className={style.iconContainer}>
@@ -77,21 +62,15 @@ const Singup = () => {
                 <img src={passwordVisible ? eyeOnIcon : eyeoffIcon} alt="eyeoffIcon" className={style.eye} />
               </button>
             </div>
-            <div className={style.CheckBox} >
-              <span className={style.Info}><input type="checkbox" />Я прочитал и согласен с <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" onClick={handleConfettiClick}>Условиями использования</a> </span>
-            </div>
+            <div onClick={handleClickCreate} className={style.createAcc}><p>Создать аккаунт</p></div>
             <div className={style.ButtonContainer}>
-              <button type="submit" className={style.CreateAccount}>Создать аккаунт</button>
+              <button type="submit" className={style.login}>Войти</button>
             </div>
           </form>
         </div>
-        <div className={style.imgContainer}>
-          <img src={desktop} alt="" />
-        </div>
-        {showConfetti && <Confetti />}
       </div>
     </div>
   );
 };
 
-export default Singup;
+export default Login;
