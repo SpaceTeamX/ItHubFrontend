@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import Articles from './components/Content/Articles/Articles';
 import Vacancy from './components/Content/Resume/Resume';

@@ -14,6 +14,19 @@ const Navbar = () => {
 
   const isNewsPage = location.pathname === '/';
 
+  const getPageName = () => {
+    if (isNewsPage) {
+      return 'Новости';
+    } else if (location.pathname === '/articles') {
+      return 'Создать Статью';
+    } else if (location.pathname === '/resume') {
+      return 'Создать Резюме';
+    } else if (location.pathname === '/video') {
+      return 'Создать Видео';
+    }
+    return '';
+  };
+
   return (
     <div className={style.navbar}>
       <div className={style.navList}>
@@ -23,7 +36,7 @@ const Navbar = () => {
           <button className={style.writePostButton}>
             <div className={style.btn}>
               <img src="/public/assets/newpost.svg" alt="pen" /> 
-              <p>Написать пост</p>
+              <p>{getPageName()}</p>
             </div>
           </button>
       )}

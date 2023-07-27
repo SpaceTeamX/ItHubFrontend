@@ -16,8 +16,8 @@ export const axiosAuth = createAsyncThunk(
 
 const initialState = {
   authData: "",
-  success: true,
-  status: "loading",
+  success: false,
+  status: "",
 };
 
 const authSlice = createSlice({
