@@ -1,0 +1,27 @@
+.content {
+  width: 880px;
+
+  .wrapper {
+    .title {
+      display: flex;
+      height: 120px;
+      padding-left: 20px;
+      margin-bottom: 30px;
+      background: #fff;
+      align-items: center;
+      border-radius: 12px;
+      border: 2px solid #eaeaea;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .card {
+      height: 220px;
+      margin-bottom: 30px;
+      background: #fff;
+      border-radius: 12px;
+      border: 2px solid #eaeaea;
+    }
+  }
+}

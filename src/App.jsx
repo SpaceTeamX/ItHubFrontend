@@ -10,6 +10,7 @@ import Video from './components/Content/Video/Video';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Content/Login/Login';
+import Profile from './components/Content/Profile/Profile';
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/video' element={<Video />} />
           <Route path='/singup' element={<Singup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </div>
     </div>

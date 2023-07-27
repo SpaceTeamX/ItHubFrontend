@@ -8,16 +8,21 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
   const navigate = useNavigate();
-  const { islogin } = useSelector(state => state.singup)
+  const { success } = useSelector(state => state.auth)
+
   const handleLoginClick = () => {
     navigate('/login');
   };
+
+  const handleUserClick = () => {
+    navigate('/profile')
+  }
 
   return (
     <div className={style.header}>
       <Logo />
       <Filters />
-      {islogin ? <p>User</p> :
+      {success ? <p onClick={handleUserClick} className={style.login}>User</p> :
         <div className={style.login} onClick={handleLoginClick}>
           <img src={userIcon} alt="user" />
           <p>Войти</p>

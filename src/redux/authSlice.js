@@ -16,6 +16,7 @@ export const axiosAuth = createAsyncThunk(
 
 const initialState = {
   authData: "",
+  success: true,
   status: "loading",
 };
 
