@@ -7,15 +7,17 @@ const NewsCard = () => {
                 <p>Технологии</p>
             </div>
             <div className={style.title}>
-                <p>Лучшие смартфоны до 20 000 рублей в июле 2023 года</p>
+                <p>Tesla готовится снова принимать биткоин для оплаты покупки электромобилей</p>
             </div>
-            <div className={style.wrapper}>
-                <div className={style.date}>
-                    <p>Сегодня 23:00</p>
-                </div>
-                <div className={style.views}>
-                    <img src="/assets/eye.svg" alt="" />
-                    <p>1</p>
+            <div className={style.absolute}>
+                <div className={style.wrapper}>
+                    <div className={style.date}>
+                        <p>Сегодня 23:00</p>
+                    </div>
+                    <div className={style.views}>
+                        <img src="/assets/eye.svg" alt="" />
+                        <p>1</p>
+                    </div>
                 </div>
             </div>
         </div>
