@@ -1,0 +1,29 @@
+.card {
+  height: 190px;
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid #eaeaea;
+  padding: 15px 20px;
+  color: #8a8a8a;
+
+  .title {
+    margin-top: 17px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #464646;
+    line-height: normal;
+  }
+  .wrapper {
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+    .views {
+      display: flex;
+      align-items: center;
+      p{
+        margin-left: 5px;
+        font-size: 12px;
+      }
+    }
+  }
+}
