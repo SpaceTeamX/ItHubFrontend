@@ -7,6 +7,8 @@ import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg'
 import Logo from "../../Header/Logo/Logo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { axiosAuth } from "../../../redux/authSlice";
 
 const Login = () => {
 
@@ -16,21 +18,22 @@ const Login = () => {
     navigate('/singup')
   }
 
+  const dispatch = useDispatch()
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible((prevVisible) => !prevVisible);
-    console.log(data);
   };
 
   const onSubmit = (data) => {
-    setData(data)
+    dispatch(axiosAuth(data))
   }
 
-  console.log(data)
-
+  const {authData} = useSelector(state => state.auth)
+  console.log(authData)
   return (
     <div className={style.singup}>
       <div className={style.singupContent}>
@@ -44,12 +47,12 @@ const Login = () => {
             onSubmit={handleSubmit(onSubmit)}
             className={style.formInputs}
           >
-            {errors.email && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
+            {errors.username && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}
             <div className={style.inputContainer}>
               <div className={style.iconContainer}>
                 <img src={mailIcon} alt="Mail Icon" />
               </div>
-              <input type='email' {...register("email", { required: true })} className={style.inputss} placeholder="Почта" />
+              <input type='email' {...register("username", { required: true })} className={style.inputss} placeholder="Почта" />
             </div>
 
             {errors.password && <div className={style.errorsField}>Это поле обязательно к заполнению:</div>}

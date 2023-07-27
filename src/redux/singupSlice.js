@@ -5,7 +5,7 @@ export const axiosSingUp = createAsyncThunk(
   "singup/axiosSingUpData",
   async (data) => {
     console.log(data)
-    const response = await axios.post('https://64c13d00fa35860baea0471b.mockapi.io/cats', data);
+    const response = await axios.post('http://26.92.63.81:8000/api/users/auth/register/', data);
     return response.data;
   }
 );
