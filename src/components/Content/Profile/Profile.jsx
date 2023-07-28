@@ -1,3 +1,4 @@
+import ProfileCard from './ProfileCard/ProfileCard'
 import style from './profile.module.scss'
 
 const Profile = () => {
@@ -8,11 +9,12 @@ const Profile = () => {
           <img src="/assets/user.png" alt="userIcon" />
           <div className={style.user}>
             <p>id:1</p>
-            <p>UserName</p>
+            <p className={style.username}>UserName</p>
           </div>
         </div>
-        <div className={style.card}>Profile</div>
+        <ProfileCard />
       </div>
+
     </div>
   )
 }

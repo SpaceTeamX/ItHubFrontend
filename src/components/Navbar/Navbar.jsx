@@ -13,6 +13,7 @@ const Navbar = () => {
   ];
 
   const isNewsPage = location.pathname === '/';
+  const isProfilePage = location.pathname === '/profile'
 
   const getPageName = () => {
     if (isNewsPage) {
@@ -32,7 +33,7 @@ const Navbar = () => {
       <div className={style.navList}>
         {navList.map((item, index) => <NavBarItem item={item} index={index} key={index} />)}
       </div>
-      {isNewsPage ? null : (
+      {isNewsPage || isProfilePage ? null : (
           <button className={style.writePostButton}>
             <div className={style.btn}>
               <img src="/public/assets/newpost.svg" alt="pen" /> 
