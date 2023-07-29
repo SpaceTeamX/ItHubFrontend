@@ -15,11 +15,11 @@ const NavBarItem = ({ item, index }) => {
 
 
   return (
-    <div className={index == navItemId ? style.active : style.wrapper}>
+    <div className={index == navItemId ? style.active : style.wrapper} >
       <Link
         to={item.link}
-        onClick={() => handleClick(index)}
         className={style.btn}
+        onClick={() => handleClick(index)}
       >
         <img src={item.img} alt="" />
         <p>{item.name}</p>

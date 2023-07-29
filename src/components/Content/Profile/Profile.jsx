@@ -6,7 +6,7 @@ const Profile = () => {
     <div className={style.content}>
       <div className={style.wrapper}>
         <div className={style.title}>
-          <img src="/assets/user.png" alt="userIcon" />
+          <img src="/assets/profileUser.png" alt="userIcon" />
           <div className={style.user}>
             <p>id:1</p>
             <p className={style.username}>UserName</p>

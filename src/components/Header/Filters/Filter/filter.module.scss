@@ -1,11 +1,13 @@
 .filter {
     display: flex;
+    height: 54px;
     width: 120px;
-    padding: 12px 0;
     background: #fff;
     border-radius: 12px;
     border: 2px solid #eaeaea;
     justify-content: center;
+    align-items: center;
+    cursor: pointer;
     p{
       margin-top: 2px;
       margin-left: 10px;

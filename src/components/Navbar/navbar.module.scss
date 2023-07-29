@@ -4,34 +4,10 @@
   width: 190px;
   font-weight: 500;
 
-  .writePostButton {
-    position: fixed;
-    background-color: #00acff;
-    box-shadow: 0px 3px 8px #5ccaff;
-    width: 190px;
-    height: 50px;
-    border-radius: 12px;
-    font: inherit;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    z-index: 999; 
-    margin-top: 50px;
-  
-    .btn {
-      display: flex;
-      padding: 12px 0;
-      align-items: center;
-      margin-left: -15px;
-      justify-content: center;
-    }
-
-
     p{
       margin-left: 10px;
       margin-bottom:0;
     }
-  }
 }
 
 

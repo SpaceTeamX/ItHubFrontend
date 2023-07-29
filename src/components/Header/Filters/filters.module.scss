@@ -1,11 +1,12 @@
 .filters {
   display: flex;
-  width: 880px;
-  max-height: 45px;
+  width: 920px;
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
-  .wrapper{
+  margin-bottom: 30px;
+  .wrapper {
+    height: 54px;
     display: flex;
     column-gap: 40px;
   }

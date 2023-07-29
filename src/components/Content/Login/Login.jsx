@@ -4,7 +4,6 @@ import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.sv
 import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
 import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
 import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
-import Logo from "../../Header/Logo/Logo";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +12,7 @@ import { axiosAuth } from "../../../redux/authSlice";
 const Login = () => {
 
   const navigate = useNavigate()
-  
+
   const handleClickCreate = () => {
     navigate('/singup')
   }
@@ -21,7 +20,6 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [data, setData] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -32,14 +30,14 @@ const Login = () => {
     dispatch(axiosAuth(data))
   }
 
-  const {authData} = useSelector(state => state.auth)
+  const { authData } = useSelector(state => state.auth)
   console.log(authData)
   return (
     <div className={style.singup}>
       <div className={style.singupContent}>
         <div className={style.form}>
           <Link to='/'>
-            <Logo />
+            <img src="/assets/logo.svg" alt="" />
           </Link>
           <span className={style.HelloProgram}>Авторизация</span>
           <form

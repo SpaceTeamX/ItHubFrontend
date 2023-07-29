@@ -1,13 +1,13 @@
-import style from './resume.module.scss'
+import style from './vacancy.module.scss'
 
-const Resume = () => {
+const Vacancy = () => {
   return (
     <div className={style.content}>
-      {[...new Array(3)].map((item, index) =>
+      {[...new Array(2)].map((item, index) =>
         <div className={style.card} key={index}>{item}</div>
       )}
     </div>
   )
 }
 
-export default Resume
+export default Vacancy
