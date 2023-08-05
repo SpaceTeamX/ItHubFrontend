@@ -28,7 +28,7 @@ const Header = () => {
             <img src='/assets/user.svg' alt="user" />
             <p className={style.login}>User</p>
           </Link>) : (
-          <Link to='/singup' className={style.login}>
+          <Link to='/login' className={style.login}>
             <img src='/assets/user.svg' alt="userIcon" />
             <p>Войти</p>
           </Link>)

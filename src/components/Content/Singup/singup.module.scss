@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
     width: 100%;
     border-radius: 36px;
     background-color: #FFFFFF;
     
     .singupContent{
         display: grid;
-        width: 1600px;
+        width: 1400px;
         grid-template-columns: repeat(2,1fr);
     }
     .imgContainer{
