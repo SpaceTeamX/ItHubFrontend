@@ -5,14 +5,13 @@ export const axiosSingUp = createAsyncThunk(
   "singup/axiosSingUpData",
   async (data) => {
     console.log(data)
-    const response = await axios.post('http://26.92.63.81:8000/api/users/auth/register/', data);
+    const response = await axios.post("https://ktotonekt.pythonanywhere.com/api/users/auth/register/", data);
     return response.data;
   }
 );
 
 const initialState = {
-  userData: "",
-  islogin: false,
+  token: "",
   status: "loading",
 };
 
@@ -32,7 +31,7 @@ const singUpSice = createSlice({
 
     builder.addCase(axiosSingUp.fulfilled, (state, action) => {
       state.status = "success";
-      state.userData = action.payload;
+      state.token = action.payload;
     });
 
     builder.addCase(axiosSingUp.rejected, (state) => {

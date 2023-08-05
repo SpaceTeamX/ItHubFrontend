@@ -6,7 +6,7 @@ import { setNavItemId } from '../../redux/navBarSlice';
 
 const Header = () => {
   const dispatch = useDispatch()
-  const { success } = useSelector(state => state.auth)
+  const { token } = useSelector(state => state.singup)
 
   const handleUserClick = () => {
     dispatch(setNavItemId(null))
@@ -23,12 +23,12 @@ const Header = () => {
           <img src="/assets/plus.svg" alt="plusIcon" />
           <p>Создать</p>
         </div>
-        {success ? (
+        {token ? (
           <Link to='/profile' onClick={handleUserClick} className={style.login}>
             <img src='/assets/user.svg' alt="user" />
             <p className={style.login}>User</p>
           </Link>) : (
-          <Link className={style.login}>
+          <Link to='/singup' className={style.login}>
             <img src='/assets/user.svg' alt="userIcon" />
             <p>Войти</p>
           </Link>)

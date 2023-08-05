@@ -6,7 +6,7 @@ export const axiosAuth = createAsyncThunk(
   async (data) => {
     console.log(data);
     const response = await axios.post(
-      "http://26.92.63.81:8000/api/users/auth/login/",
+      "https://ktotonekt.pythonanywhere.com/api/users/auth/login/",
       data, 
     //   {auth:}
     );
@@ -16,7 +16,6 @@ export const axiosAuth = createAsyncThunk(
 
 const initialState = {
   authData: "",
-  success: true,
   status: "",
 };
 
