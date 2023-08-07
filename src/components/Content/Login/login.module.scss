@@ -1,120 +1,126 @@
-.singup{
+.singup {
+  display: flex;
+  margin-top: 150px;
+  margin-left: 300px;
+  border-radius: 36px;
+  background-color: #ffffff;
+  height: 560px;
+  width: 740px;
+
+  .singupContent {
+    padding: 60px;
+    width: 100%;
+  }
+  .imgContainer {
+    img {
+      border-top-right-radius: 36px;
+      border-bottom-right-radius: 36px;
+    }
+  }
+  .form {
     display: flex;
-    margin-top: 150px;
-    margin-left: 300px;
-    border-radius: 36px;
-    background-color: #FFFFFF;
-    
-    .singupContent{
-      padding: 60px;
-    }
-    .imgContainer{
-        img{
-            border-top-right-radius: 36px;
-            border-bottom-right-radius: 36px;
-        }
-    }
-    .form {
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: space-between;
-        width: 620px;
-        height:420px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 620px;
+    height: 420px;
 
-        .HelloProgram{
-            font-size: 35px;
-            margin-top: 20px;
-            font-weight: bold;
-            color: #464646;
-        }
+    .HelloProgram {
+      font-size: 35px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #464646;
+    }
+    .error {
+      color: red;
+    }
+  }
+  .formInputs {
+    display: flex;
+    flex-direction: column;
 
+    .errorsField {
+      color: red;
     }
-    .formInputs {
-        display: flex;
-        flex-direction: column; 
- 
-        .errorsField{
-            color: red;
-        }
-        .inputss{
-            width: 350px;
-            height: 55px;
-            border-radius: 48px;
-            font-size: 20px;
-            font-weight: bold;
-            padding:0 40px;
-            border: 0.3px solid black;
-        }
+    .inputss {
+      width: 350px;
+      height: 55px;
+      border-radius: 48px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 40px;
+      border: 0.3px solid black;
     }
+  }
 }
 
 .inputContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .iconContainer  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px; 
-    height: 100%;
-    padding: 10px;
-    margin-top: -11px;
-    position: absolute;
-    top: 0;
-    left: 50;
-  }
-  
-  .iconContainer img {
-    width: 20px; 
-    height: 20px;
-    pointer-events: none; 
-  }
-  
-  .inputContainer input {
-    padding-left: 0px; 
-  }
-
-.iconContainerEye{
-    background-color: transparent ;
-    border:none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 16px;
 }
-  .createAcc{
-    margin-left: 20px;
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 100%;
+  padding: 10px;
+  margin-top: -11px;
+  position: absolute;
+  top: 0;
+  left: 50;
+}
+
+.iconContainer img {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.inputContainer input {
+  padding-left: 0px;
+}
+
+.iconContainerEye {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+.createAcc {
+  .error{
     margin-bottom: 20px;
-    cursor: pointer;
   }
+  margin-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
 
-.ButtonContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 
-    .login{
-        padding: 10px 50px;
-        font-size: 25px;
-        font-weight: 500;
-        cursor: pointer;
-        color: #FFFFFF  ;
-        border: 1px solid  transparent;
-        border-radius: 30px;
-        background-color: #00ACFF;
-    }
-    
-    
-} 
+  .login {
+    padding: 10px 50px;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    background-color: #0081bf;
+  }
+}

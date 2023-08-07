@@ -24,8 +24,8 @@
         align-items: center; 
         justify-content: space-between;
         width: 620px;
-        height:420px;
-        margin:50px 100px;
+        height:600px;
+        margin: 100px 100px 0 100px;
 
         .HelloProgram{
             font-size: 35px;
@@ -105,23 +105,26 @@
     margin-right: 10px;
     margin-top: 20px;
 
-
     input[type="checkbox"]{
         width: 20px;
         height: 20px;
     }
     .Info{
-        font-size: 20px;
+        
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: center;
+    
     }
     a{
-        color:#00507C;
+        color:#0081BF;
     }
 }  
 .ButtonContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin-top: 20px;
     
     .CreateAccount{
         font-size: 25px;
@@ -131,7 +134,7 @@
         color: #FFFFFF  ;
         border: 1px solid  transparent;
         border-radius: 30px;
-        background-color: #00ACFF;
+        background-color: #0081BF;
     }
     
     

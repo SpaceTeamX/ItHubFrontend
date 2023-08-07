@@ -15,12 +15,12 @@ import { useDispatch } from "react-redux";
 import { axiosSingUp } from "../../../redux/singupSlice";
 
 const Singup = () => {
+
+  const dispatch = useDispatch()
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-
-  const dispatch = useDispatch()
 
   const handleConfettiClick = () => {
     setShowConfetti(true);
@@ -36,8 +36,6 @@ const Singup = () => {
   const onSubmit = (data) => {
     dispatch(axiosSingUp(data))
   }
-
-
 
 
   return (
@@ -79,13 +77,16 @@ const Singup = () => {
                 <img src={passwordVisible ? eyeOnIcon : eyeoffIcon} alt="eyeoffIcon" className={style.eye} />
               </button>
             </div>
-            <div className={style.CheckBox} >
-              <span className={style.Info}><input type="checkbox" />Я прочитал и согласен с <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" onClick={handleConfettiClick}>Условиями использования</a> </span>
-            </div>
             <div className={style.ButtonContainer}>
               <button type="submit" className={style.CreateAccount}>Создать аккаунт</button>
             </div>
           </form>
+          <div className={style.CheckBox} >
+              <span className={style.Info}>
+                <p>Создавая аккаунт вы соглашаетесь с </p>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" onClick={handleConfettiClick}>Условиями использования</a>
+              </span>
+            </div>
         </div>
         <div className={style.imgContainer}>
           <img src={desktop} alt="" />
