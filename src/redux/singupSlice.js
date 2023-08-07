@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { useDispatch } from "react-redux";
 
 export const axiosAuth = createAsyncThunk(
   "singup/axiosAuthData",
@@ -8,13 +8,12 @@ export const axiosAuth = createAsyncThunk(
     console.log(data);
     const response = await axios.post(
       "https://ktotonekt.pythonanywhere.com/api/users/auth/login/",
-      data, 
-    //   {auth:}
+      data
+      //   {auth:}
     );
     return response.data;
   }
 );
-
 
 export const axiosSingUp = createAsyncThunk(
   "singup/axiosSingUpData",
@@ -22,17 +21,17 @@ export const axiosSingUp = createAsyncThunk(
     console.log(data);
     const response = await axios.post(
       "https://ktotonekt.pythonanywhere.com/api/users/auth/register/",
-      data, 
-    //   {auth:}
+      data
+      //   {auth:}
     );
     return response.data;
   }
 );
 
-
 const initialState = {
   token: "",
   status: "",
+  error: "",
 };
 
 const singUpSice = createSlice({
@@ -49,7 +48,6 @@ const singUpSice = createSlice({
     });
     builder.addCase(axiosAuth.pending, (state) => {
       state.status = "loading";
-     
     });
 
     builder.addCase(axiosSingUp.fulfilled, (state, action) => {
@@ -61,11 +59,12 @@ const singUpSice = createSlice({
       state.token = action.payload;
     });
 
-    builder.addCase(axiosSingUp.rejected, (state) => {
+    builder.addCase(axiosSingUp.rejected, (state, action) => {
       state.status = "error";
+      state.error = action.payload;
     });
     builder.addCase(axiosAuth.rejected, (state) => {
-      state.status = "error"; 
+      state.status = "error";
     });
   },
 });

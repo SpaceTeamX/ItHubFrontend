@@ -4,6 +4,7 @@ import singUpReducer from "./singupSlice";
 
 
 
+
 export const store = configureStore({
     reducer: {
         navBar: navBarReducer,

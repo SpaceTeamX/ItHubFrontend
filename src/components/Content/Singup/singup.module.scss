@@ -1,141 +1,143 @@
-.singup{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    width: 100%;
-    border-radius: 36px;
-    background-color: #FFFFFF;
-    
-    .singupContent{
-        display: grid;
-        width: 1400px;
-        grid-template-columns: repeat(2,1fr);
-    }
-    .imgContainer{
-        img{
-            border-top-right-radius: 36px;
-            border-bottom-right-radius: 36px;
-        }
-    }
-    .form {
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-        justify-content: space-between;
-        width: 620px;
-        height:600px;
-        margin: 100px 100px 0 100px;
+.singup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  border-radius: 36px;
+  background-color: #ffffff;
 
-        .HelloProgram{
-            font-size: 35px;
-            margin: 50px;
-            font-weight: bold;
-            color: #464646;
-        }
+  .singupContent {
+    display: grid;
+    width: 1400px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .imgContainer {
+    img {
+      border-top-right-radius: 36px;
+      border-bottom-right-radius: 36px;
     }
-    .formInputs {
-        display: flex;
-        flex-direction: column; 
- 
-        .errorsField{
-            color: red;
-        }
-        .inputss{
-            width: 450px;
-            height: 55px;
-            border-radius: 48px;
-            font-size: 20px;
-            font-weight: bold;
-            padding:0 40px;
-            border: 0.3px solid black;
-        }
+  }
+  .wrapper {
+    width: 620px;
+    margin: 100px 100px 0 100px;
+    height: 600px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .HelloProgram {
+      font-size: 35px;
+      margin: 50px;
+      font-weight: bold;
+      color: #464646;
     }
+    .error {
+      color: rgb(255, 0, 0);
+      margin: 10px 0 10px 20px;
+    }
+  }
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+
+    .errorsField {
+      color: red;
+    }
+    .inputss {
+      width: 450px;
+      height: 55px;
+      border-radius: 48px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 40px;
+      border: 0.3px solid black;
+    }
+  }
 }
 
 .inputContainer {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 8px;
-    margin-bottom: 16px;
-  }
-  
-  .iconContainer  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px; 
-    height: 100%;
-    padding: 10px;
-    margin-top: -11px;
-    position: absolute;
-    top: 0;
-    left: 50;
-  }
-  
-  .iconContainer img {
-    width: 20px; 
-    height: 20px;
-    pointer-events: none; 
-  }
-  
-  .inputContainer input {
-    padding-left: 0px; 
-  }
-
-.iconContainerEye{
-    background-color: transparent ;
-    border:none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    margin-right: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 16px;
 }
-  
-.CheckBox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    margin-top: 20px;
 
-    input[type="checkbox"]{
-        width: 20px;
-        height: 20px;
-    }
-    .Info{
-        
-        margin-top: 20px;
-        font-size: 16px;
-        text-align: center;
-    
-    }
-    a{
-        color:#0081BF;
-    }
-}  
-.ButtonContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 100%;
+  padding: 10px;
+  margin-top: -11px;
+  position: absolute;
+  top: 0;
+  left: 50;
+}
+
+.iconContainer img {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.inputContainer input {
+  padding-left: 0px;
+}
+
+.iconContainerEye {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
+.CheckBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 20px;
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  .Info {
     margin-top: 20px;
-    
-    .CreateAccount{
-        font-size: 25px;
-        font-weight: 500;
-        padding: 15px;
-        cursor: pointer;
-        color: #FFFFFF  ;
-        border: 1px solid  transparent;
-        border-radius: 30px;
-        background-color: #0081BF;
-    }
-    
-    
-} 
+    font-size: 16px;
+    text-align: center;
+  }
+  a {
+    color: #0081bf;
+  }
+}
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  .CreateAccount {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 15px;
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    background-color: #0081bf;
+  }
+}
