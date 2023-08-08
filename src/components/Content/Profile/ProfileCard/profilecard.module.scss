@@ -26,15 +26,22 @@
       border-radius: 8px;
     }
   }
-  button {
-    background-color: #bde9ff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font: inherit;
-    font-weight: 500;
-    color: #0084c5;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0 20px 20px;
+  .btnWrapper {
+    display: flex;
+    button {
+      background-color: #bde9ff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: 500;
+      color: #0084c5;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0 20px 20px;
+    };
+    .exit{
+      color: rgb(255, 237, 237);
+      background-color: #E50104;
+    }
   }
 }

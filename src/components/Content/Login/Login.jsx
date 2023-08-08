@@ -4,7 +4,7 @@ import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.sv
 import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
 import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
 import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosAuth } from "../../../redux/singupSlice";
@@ -16,10 +16,9 @@ const Login = () => {
   const dispatch = useDispatch()
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleClickCreate = () => {
+  const handlSingUp = () => {
     navigate('/singup')
   }
-
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -32,6 +31,12 @@ const Login = () => {
   }
 
   const { status } = useSelector(state => state.singup)
+
+  useEffect(() => {
+    if (status == 'success') {
+      navigate('/')
+    }
+  }, [status])
 
 
   return (
@@ -67,7 +72,7 @@ const Login = () => {
                 </button>
               </div>
 
-              <div onClick={handleClickCreate} className={style.createAcc}>
+              <div onClick={handlSingUp} className={style.createAcc}>
                 {status == 'error' && <p className={style.error}>Неправильный логин или пароль</p>}
                 <p>Создать аккаунт</p>
               </div>
@@ -77,7 +82,6 @@ const Login = () => {
             </form>
           </div>
         )}
-        {status == 'success' && navigate('/')}
 
       </div>
     </div>

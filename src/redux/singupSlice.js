@@ -11,6 +11,8 @@ export const axiosAuth = createAsyncThunk(
       data
       //   {auth:}
     );
+    localStorage.setItem("token", response.data);
+
     return response.data;
   }
 );
@@ -24,12 +26,31 @@ export const axiosSingUp = createAsyncThunk(
       data
       //   {auth:}
     );
+
+    localStorage.setItem("token", response.data);
+
+    return response.data;
+  }
+);
+
+export const axiosGetUser = createAsyncThunk(
+  "singup/axiosGetUserData",
+  async (data) => {
+    console.log(data);
+    const response = await axios.post(
+      "https://ktotonekt.pythonanywhere.com/api/users/auth/register/",
+      data
+      //   {auth:}
+    );
+
+    localStorage.setItem("token", response.data);
+
     return response.data;
   }
 );
 
 const initialState = {
-  token: "",
+  token: localStorage.getItem("token"),
   status: "",
   error: "",
 };
@@ -41,6 +62,10 @@ const singUpSice = createSlice({
     setUserData: (state, action) => {
       state.userData = action.payload;
     },
+    setLogout: (state, action) => {
+      localStorage.removeItem("token");
+      state.token = ''
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(axiosSingUp.pending, (state) => {
@@ -69,7 +94,7 @@ const singUpSice = createSlice({
   },
 });
 
-export const { setSingUpData } = singUpSice.actions;
+export const { setSingUpData, setLogout } = singUpSice.actions;
 export default singUpSice.reducer;
 
 // При нажатии на войти будет отправка данных loading... и потом если успешно -> окно и редирект в профиль или основную станицу
