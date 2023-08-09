@@ -30,13 +30,13 @@ const Login = () => {
     dispatch(axiosAuth(data))
   }
 
-  const { status } = useSelector(state => state.singup)
+  const { isLoggedIn, status } = useSelector(state => state.singup)
 
   useEffect(() => {
-    if (status == 'success') {
+    if (isLoggedIn === true) {
       navigate('/')
     }
-  }, [status])
+  }, [isLoggedIn])
 
 
   return (

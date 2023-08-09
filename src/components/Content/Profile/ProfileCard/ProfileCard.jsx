@@ -3,14 +3,15 @@ import style from './profilecard.module.scss'
 import { setLogout } from '../../../../redux/singupSlice'
 import { useNavigate } from 'react-router-dom'
 
+
 const ProfileCard = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+  
     const handlLogout = () => {
         dispatch(setLogout())
-        navigate('/')
+        navigate("/")
     }
 
     return (

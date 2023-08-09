@@ -10,7 +10,6 @@ const Navbar = () => {
     { name: 'Видео', link: '/video', img: '/public/assets/Video.svg' },
   ];
 
-
   return (
     <div className={style.navbar}>
       <div className={style.navList}>

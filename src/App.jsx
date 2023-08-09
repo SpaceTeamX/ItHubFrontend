@@ -12,10 +12,17 @@ import Navbar from './components/Navbar/Navbar';
 import Login from './components/Content/Login/Login';
 import Profile from './components/Content/Profile/Profile';
 import Filters from './components/Header/Filters/Filters';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNavItemId } from './redux/navBarSlice';
+// import { axiosGetUser } from './redux/singupSlice';
+
 
 
 const App = () => {
+  const dispatch = useDispatch()
   const location = useLocation();
+  if (location.pathname == '/') { dispatch(setNavItemId(0)) }
+  const { token } = useSelector(state => state.singup)
 
   const isSingupPage = location.pathname === '/singup';
   const isLoginPage = location.pathname === '/login';

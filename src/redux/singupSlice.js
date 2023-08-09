@@ -7,11 +7,10 @@ export const axiosAuth = createAsyncThunk(
   async (data) => {
     console.log(data);
     const response = await axios.post(
-      "https://ktotonekt.pythonanywhere.com/api/users/auth/login/",
+      `https://ktotonekt.pythonanywhere.com/api/users/auth/login/`,
       data
       //   {auth:}
     );
-    localStorage.setItem("token", response.data);
 
     return response.data;
   }
@@ -22,37 +21,40 @@ export const axiosSingUp = createAsyncThunk(
   async (data) => {
     console.log(data);
     const response = await axios.post(
-      "https://ktotonekt.pythonanywhere.com/api/users/auth/register/",
+      `https://ktotonekt.pythonanywhere.com/api/users/auth/register/`,
       data
       //   {auth:}
     );
-
-    localStorage.setItem("token", response.data);
 
     return response.data;
   }
 );
 
-export const axiosGetUser = createAsyncThunk(
-  "singup/axiosGetUserData",
-  async (data) => {
-    console.log(data);
-    const response = await axios.post(
-      "https://ktotonekt.pythonanywhere.com/api/users/auth/register/",
-      data
-      //   {auth:}
-    );
+// export const axiosGetUser = createAsyncThunk(
+//   "singup/axiosGetUserData",
+//   async (data) => {
+//     console.log(data);
+//     const response = await axios.get(
+//       `${API}/api/users/me/profile/`,
+//       {
+//         headers: {
+//           Authorization: localStorage.getItem("token"),
+//         },
+//       }
+//       //   {auth:}
+//     );
 
-    localStorage.setItem("token", response.data);
-
-    return response.data;
-  }
-);
+//     return response.data;
+//   }
+// );
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: "",
+  user: "",
+  userData: "",
   status: "",
   error: "",
+  isLoggedIn: false,
 };
 
 const singUpSice = createSlice({
@@ -63,9 +65,10 @@ const singUpSice = createSlice({
       state.userData = action.payload;
     },
     setLogout: (state, action) => {
-      localStorage.removeItem("token");
-      state.token = ''
-    }
+      state.token = null;
+      state.userData = "";
+      state.isLoggedIn = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(axiosSingUp.pending, (state) => {
@@ -77,12 +80,20 @@ const singUpSice = createSlice({
 
     builder.addCase(axiosSingUp.fulfilled, (state, action) => {
       state.status = "success";
-      state.token = action.payload;
+      state.token = action.payload.token;
+      state.user = action.payload.user;
+      state.isLoggedIn = true;
     });
     builder.addCase(axiosAuth.fulfilled, (state, action) => {
       state.status = "success";
       state.token = action.payload;
+      state.user = action.payload.user;
+      state.isLoggedIn = true;
     });
+    // builder.addCase(axiosGetUser.fulfilled, (state, action) => {
+    //   state.status = "success";
+    //   state.userData = action.payload;
+    // });
 
     builder.addCase(axiosSingUp.rejected, (state, action) => {
       state.status = "error";

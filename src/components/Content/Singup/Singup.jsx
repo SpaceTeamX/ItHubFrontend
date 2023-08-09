@@ -8,16 +8,17 @@ import userIcon from '../../../../public/assets/Iconly/Light-Outline/user.svg';
 import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
 import Confetti from "react-confetti";
 import Loader from '../../Elements/Loader/Loader'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-
 import { axiosSingUp } from "../../../redux/singupSlice";
 
 const Singup = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const { status } = useSelector(state => state.singup)
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -37,13 +38,18 @@ const Singup = () => {
     dispatch(axiosSingUp(data))
   }
 
-  const { status } = useSelector(state => state.singup)
+  useEffect(() => {
+    if (status == 'success') {
+      navigate('/')
+    }
+
+  }, [status])
 
   return (
     <div className={style.singup}>
       <div className={style.singupContent}>
         <div className={style.wrapper}>
-          {status == 'loading' ? Loader : (
+          {status == 'loading' ? <Loader /> : (
             <div className={style.form}>
               <Link to='/'>
                 <img src="/assets/logo.svg" alt="" />
@@ -101,7 +107,7 @@ const Singup = () => {
         <div className={style.imgContainer}>
           <img src={desktop} alt="" />
         </div>
-        {status == 'success' && navigate('/')}
+
         {showConfetti && <Confetti />}
       </div>
     </div>
