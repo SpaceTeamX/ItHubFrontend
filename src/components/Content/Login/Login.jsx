@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { axiosAuth } from "../../../redux/singupSlice";
-import Loader from '../../Elements/Loader/Loader'
+import Loader from '../../Loader/Loader'
 
 const Login = () => {
 

@@ -7,7 +7,7 @@ import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
 import userIcon from '../../../../public/assets/Iconly/Light-Outline/user.svg';
 import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
 import Confetti from "react-confetti";
-import Loader from '../../Elements/Loader/Loader'
+import Loader from '../../Loader/Loader'
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";

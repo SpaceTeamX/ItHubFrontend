@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Content/Login/Login';
 import Profile from './components/Content/Profile/Profile';
-import Filters from './components/Header/Filters/Filters';
+import Filters from './components/Filters/Filters';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNavItemId } from './redux/navBarSlice';
 // import { axiosGetUser } from './redux/singupSlice';
