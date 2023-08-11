@@ -1,5 +1,6 @@
 .header {
   display: flex;
+
   width: 1200px;
   justify-content: space-between;
   align-items: center;
@@ -11,25 +12,57 @@
 
   .wrapper {
     display: flex;
-    .button{
-      display: flex;
-      align-items: center;
-      background-color: rgba(0, 129, 191, 0.20);
-      border-radius: 12px;
+
+    .buttonWrapper {
+      position: relative;
       margin-right: 25px;
-      padding: 7px 10px;
-      cursor: pointer;
-      color: #464646;
-      p{
-        font-weight: 700;
-        margin-right: 5px;
+      .button {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 129, 191, 0.2);
+        border-radius: 12px;
+        padding: 7px 10px;
+      
+        cursor: pointer;
+        color: #464646;
+        p {
+          font-weight: 700;
+          margin-right: 5px;
+        }
+        img {
+          width: 35px;
+        }
       }
-      img{
-        width: 35px;
+      .popup {
+        position: absolute;
+        width: 120px;
+        right: 0;
+        margin-top: 10px;
+        background-color: #c5dfeb;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+        padding: 15px;
+        
+        li {
+          display: flex;   
+          align-items: center;
+          cursor: pointer;
+          margin-left: 5px;
+          img {
+            width: 20px;
+            margin-right: 10px;
+          }
+          p {
+            margin-top: 2px;
+            font-weight: 500;
+          }
+        }
+        li + li {
+          margin-top: 15px;
+        }
       }
     }
     .login {
-
       display: flex;
       justify-content: center;
       align-items: center;

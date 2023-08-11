@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 export const axiosAuth = createAsyncThunk(
   "singup/axiosAuthData",
   async (data) => {
-    console.log(data);
+
     const response = await axios.post(
       `https://ktotonekt.pythonanywhere.com/api/users/auth/login/`,
       data
@@ -19,7 +19,7 @@ export const axiosAuth = createAsyncThunk(
 export const axiosSingUp = createAsyncThunk(
   "singup/axiosSingUpData",
   async (data) => {
-    console.log(data);
+   
     const response = await axios.post(
       `https://ktotonekt.pythonanywhere.com/api/users/auth/register/`,
       data
@@ -30,21 +30,48 @@ export const axiosSingUp = createAsyncThunk(
   }
 );
 
-// export const axiosGetUser = createAsyncThunk(
-//   "singup/axiosGetUserData",
-//   async (data) => {
-//     console.log(data);
-//     const response = await axios.get(
-//       `${API}/api/users/me/profile/`,
-//       {
-//         headers: {
-//           Authorization: localStorage.getItem("token"),
-//         },
-//       }
-//       //   {auth:}
-//     );
+export const axiosGetUser = createAsyncThunk(
+  "singup/axiosGetUser",
+  async (data) => {
+    try {
+      
+      const response = await axios.get(
+        `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
+        {
+          headers: {
+            Authorization: "Token " + data,
+          },
+        }
+      );
 
-//     return response.data;
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+// export const axiosChangeUser = createAsyncThunk(
+//   "singup/axiosChangeUser",
+//   async (data, token) => {
+//     console.log('data', data)
+//     console.log('token', token)
+//     try {
+      
+//       const response = await axios.post(
+//         `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
+//         {
+//           headers: {
+//             Authorization: "Token " + token,
+//           },
+//           data: data
+//         }
+//       );
+
+//       return response.data;
+//     } catch (error) {
+//       console.log(error);
+//     }
 //   }
 // );
 
@@ -61,12 +88,9 @@ const singUpSice = createSlice({
   name: "singup",
   initialState,
   reducers: {
-    setUserData: (state, action) => {
-      state.userData = action.payload;
-    },
     setLogout: (state, action) => {
       state.token = null;
-      state.userData = "";
+      state.user = "";
       state.isLoggedIn = false;
     },
   },
@@ -86,14 +110,20 @@ const singUpSice = createSlice({
     });
     builder.addCase(axiosAuth.fulfilled, (state, action) => {
       state.status = "success";
-      state.token = action.payload;
+      state.token = action.payload.token;
       state.user = action.payload.user;
       state.isLoggedIn = true;
     });
-    // builder.addCase(axiosGetUser.fulfilled, (state, action) => {
-    //   state.status = "success";
-    //   state.userData = action.payload;
-    // });
+
+    builder.addCase(axiosGetUser.fulfilled, (state, action) => {
+      state.status = "success";
+      state.userData = action.payload;
+    });
+
+    builder.addCase(axiosGetUser.rejected, (state, action) => {
+      state.status = "error";
+      state.error = action.payload;
+    });
 
     builder.addCase(axiosSingUp.rejected, (state, action) => {
       state.status = "error";
@@ -107,5 +137,3 @@ const singUpSice = createSlice({
 
 export const { setSingUpData, setLogout } = singUpSice.actions;
 export default singUpSice.reducer;
-
-// При нажатии на войти будет отправка данных loading... и потом если успешно -> окно и редирект в профиль или основную станицу

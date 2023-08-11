@@ -22,7 +22,7 @@ const App = () => {
   const dispatch = useDispatch()
   const location = useLocation();
   if (location.pathname == '/') { dispatch(setNavItemId(0)) }
-  const { token } = useSelector(state => state.singup)
+  const {  } = useSelector(state => state.singup)
 
   const isSingupPage = location.pathname === '/singup';
   const isLoginPage = location.pathname === '/login';

@@ -28,6 +28,9 @@
   }
   .btnWrapper {
     display: flex;
+    width: 230px;
+    justify-content: space-between;
+    margin-top: 30px;
     button {
       background-color: #bde9ff;
       padding: 10px 20px;
@@ -37,7 +40,7 @@
       color: #0084c5;
       border: none;
       cursor: pointer;
-      margin: 10px 0 20px 20px;
+      
     };
     .exit{
       color: rgb(255, 237, 237);

@@ -1,0 +1,30 @@
+.card {
+  
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid #eaeaea;
+  padding: 20px 15px;
+  cursor: pointer;
+  .company {
+    display: flex;
+    h3 {
+      color: #464646;
+      font-weight: 500;
+    }
+    p {
+      margin-left: 30px;
+    }
+  }
+  .title {
+    margin-top: 25px;
+    color: #464646;
+    font-weight: 500;
+    font-size: 25px;
+  }
+  .info {
+    display: flex;
+    margin-top: 25px;
+    column-gap: 20px;
+  }
+}
