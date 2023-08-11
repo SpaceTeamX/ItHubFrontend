@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import style from './profilecard.module.scss'
-import {setLogout } from '../../../../redux/singupSlice'
+import { axiosChangeUser, setLogout } from '../../../redux/singupSlice'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
@@ -10,13 +10,13 @@ const ProfileCard = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {token, userData} = useSelector(state => state.singup)
+    const { token, userData } = useSelector(state => state.singup)
     const handlLogout = () => {
         dispatch(setLogout())
         navigate("/")
     }
     const onSubmit = (data) => {
-        console.log(data)
+        dispatch(axiosChangeUser(data, token))
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm();

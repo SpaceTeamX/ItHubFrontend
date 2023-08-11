@@ -1,24 +1,24 @@
 import style from "./singup.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import desktop from '../../../../public/assets/Iconly/Light-Outline/Desktop.png';
-import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.svg';
-import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
-import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
-import userIcon from '../../../../public/assets/Iconly/Light-Outline/user.svg';
-import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
+import desktop from '/public/assets/Iconly/Light-Outline/Desktop.png';
+import eyeoffIcon from '/public/assets/Iconly/Light-Outline/eyeoff.svg';
+import lockIcon from '/public/assets/Iconly/Light-OutLine/lock.svg';
+import mailIcon from '/public/assets/Iconly/Light-Outline/mail.svg';
+import userIcon from '/public/assets/Iconly/Light-Outline/user.svg';
+import eyeOnIcon from '/public/assets/Iconly/Light-Outline/eyeOn.svg';
 import Confetti from "react-confetti";
-import Loader from '../../Loader/Loader'
+import Loader from '../../components/Loader/Loader'
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { axiosSingUp } from "../../../redux/singupSlice";
+import { axiosSingUp } from "../../redux/singupSlice";
 
 const Singup = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { status } = useSelector(state => state.singup)
+  const { status, isLoggedIn } = useSelector(state => state.singup)
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -39,11 +39,11 @@ const Singup = () => {
   }
 
   useEffect(() => {
-    if (status == 'success') {
+    if (isLoggedIn === true) {
       navigate('/')
     }
 
-  }, [status])
+  }, [isLoggedIn])
 
   return (
     <div className={style.singup}>

@@ -1,14 +1,14 @@
 import style from "./login.module.scss";
 import { Link, useNavigate } from "react-router-dom";
-import eyeoffIcon from '../../../../public/assets/Iconly/Light-Outline/eyeoff.svg';
-import lockIcon from '../../../../public/assets/Iconly/Light-OutLine/lock.svg';
-import mailIcon from '../../../../public/assets/Iconly/Light-Outline/mail.svg';
-import eyeOnIcon from '../../../../public/assets/Iconly/Light-Outline/eyeOn.svg';
+import eyeoffIcon from '/public/assets/Iconly/Light-Outline/eyeoff.svg';
+import lockIcon from '/public/assets/Iconly/Light-OutLine/lock.svg';
+import mailIcon from '/public/assets/Iconly/Light-Outline/mail.svg';
+import eyeOnIcon from '/public/assets/Iconly/Light-Outline/eyeOn.svg';
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { axiosAuth } from "../../../redux/singupSlice";
-import Loader from '../../Loader/Loader'
+import { axiosAuth } from "../../redux/singupSlice";
+import Loader from '../../components/Loader/Loader'
 
 const Login = () => {
 

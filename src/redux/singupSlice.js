@@ -51,29 +51,28 @@ export const axiosGetUser = createAsyncThunk(
   }
 );
 
-// export const axiosChangeUser = createAsyncThunk(
-//   "singup/axiosChangeUser",
-//   async (data, token) => {
-//     console.log('data', data)
-//     console.log('token', token)
-//     try {
+export const axiosChangeUser = createAsyncThunk(
+  "singup/axiosChangeUser",
+  async (data, token) => {
+    console.log('data', data)
+    console.log('token', token)
+    try {
       
-//       const response = await axios.post(
-//         `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
-//         {
-//           headers: {
-//             Authorization: "Token " + token,
-//           },
-//           data: data
-//         }
-//       );
-
-//       return response.data;
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
-// );
+      const response = await axios.patch(
+        `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
+        {
+          headers: {
+            Authorization: "Token " + token,
+          },
+          data: data
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
 const initialState = {
   token: "",
@@ -119,6 +118,12 @@ const singUpSice = createSlice({
       state.status = "success";
       state.userData = action.payload;
     });
+
+    builder.addCase(axiosChangeUser.fulfilled, (state, action) => {
+      state.status = "success";
+      state.userData = action.payload;
+    });
+
 
     builder.addCase(axiosGetUser.rejected, (state, action) => {
       state.status = "error";
