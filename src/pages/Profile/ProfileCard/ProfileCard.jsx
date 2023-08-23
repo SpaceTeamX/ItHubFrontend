@@ -1,22 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux'
-import style from './profilecard.module.scss'
 import { axiosChangeUser, setLogout } from '../../../redux/singupSlice'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import style from './profilecard.module.scss'
 
 
 const ProfileCard = () => {
 
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { token, userData } = useSelector(state => state.singup)
+    const { userData } = useSelector(state => state.singup)
     const handlLogout = () => {
         dispatch(setLogout())
         navigate("/")
     }
     const onSubmit = (data) => {
-        dispatch(axiosChangeUser(data, token))
+        dispatch(axiosChangeUser(data))
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -41,23 +40,23 @@ const ProfileCard = () => {
                 </div>
                 <div className={style.wrapper}>
                     <p>Имя</p>
-                    <input {...register("first_name", { required: false })} type="text" placeholder='Введите имя' />
+                    <input value={userData?.first_name} {...register("first_name", { required: false })} type="text" placeholder='Введите имя' />
                 </div>
                 <div className={style.wrapper}>
                     <p>Фамилия</p>
-                    <input {...register("last_name", { required: false })} type="text" placeholder='Введите фамилию' />
+                    <input value={userData?.last_name} {...register("last_name", { required: false })} type="text" placeholder='Введите фамилию' />
                 </div>
                 <div className={style.wrapper}>
                     <p>Возраст</p>
-                    <input {...register("age", { required: false })} type="text" placeholder='Введите свой возраст' />
+                    <input value={userData?.age} {...register("age", { required: false })} type="text" placeholder='Введите свой возраст' />
                 </div>
                 <div className={style.wrapper}>
                     <p>Пол</p>
-                    <input {...register("gender", { required: false })} type="text" placeholder='Введите свой пол' />
+                    <input value={userData?.gender === 'he' ? 'Мужской' : userData.gender === 'she' ? 'Женский' : ''} {...register("gender", { required: false })} type="text" placeholder='Введите свой пол' />
                 </div>
                 <div className={style.wrapper}>
                     <p>Город</p>
-                    <input {...register("location", { required: false })} type="text" placeholder='Введите город' />
+                    <input value={userData?.location} {...register("location", { required: false })} type="text" placeholder='Введите город' />
                 </div>
                 <div className={style.btnWrapper}>
                     <button type='submit'>Сохранить</button>
