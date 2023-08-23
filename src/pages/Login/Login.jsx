@@ -67,7 +67,7 @@ const Login = () => {
                   <img src={lockIcon} alt="lockIcon" className={style.eye} />
                 </div>
                 <input type={passwordVisible ? "text" : "password"} {...register("password", { required: true })} className={style.inputss} placeholder="Пароль" />
-                <button className={style.iconContainerEye} onClick={togglePasswordVisibility}>
+                <button type='button' className={style.iconContainerEye} onClick={togglePasswordVisibility}>
                   <img src={passwordVisible ? eyeOnIcon : eyeoffIcon} alt="eyeoffIcon" className={style.eye} />
                 </button>
               </div>
