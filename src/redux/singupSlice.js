@@ -1,78 +1,58 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import axios from "../utils/axios";
 
-export const axiosAuth = createAsyncThunk(
-  "singup/axiosAuthData",
-  async (data) => {
+export const axiosAuth = createAsyncThunk("singup/axiosAuthData", async (userData) => {
+  try {
+    const { data } = await axios.post(`/users/auth/login/`, userData);
 
-    const response = await axios.post(
-      `https://ktotonekt.pythonanywhere.com/api/users/auth/login/`,
-      data
-      //   {auth:}
-    );
-
-    return response.data;
-  }
-);
-
-export const axiosSingUp = createAsyncThunk(
-  "singup/axiosSingUpData",
-  async (data) => {
-   
-    const response = await axios.post(
-      `https://ktotonekt.pythonanywhere.com/api/users/auth/register/`,
-      data
-      //   {auth:}
-    );
-
-    return response.data;
-  }
-);
-
-export const axiosGetUser = createAsyncThunk(
-  "singup/axiosGetUser",
-  async (data) => {
-    try {
-      
-      const response = await axios.get(
-        `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
-        {
-          headers: {
-            Authorization: "Token " + data,
-          },
-        }
-      );
-
-      return response.data;
-    } catch (error) {
-      console.log(error);
+    if (data && data.token) {
+      window.localStorage.setItem('token', data.token);
     }
-  }
-);
 
-export const axiosChangeUser = createAsyncThunk(
-  "singup/axiosChangeUser",
-  async (data, token) => {
-    console.log('data', data)
-    console.log('token', token)
-    try {
-      
-      const response = await axios.patch(
-        `https://ktotonekt.pythonanywhere.com/api/users/me/profile/`,
-        {
-          headers: {
-            Authorization: "Token " + token,
-          },
-          data: data
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
+    return data;
+
+  } catch (error) {
+    console.log(error);
   }
-);
+
+});
+
+export const axiosSingUp = createAsyncThunk("singup/axiosSingUpData", async (userData) => {
+  try {
+    const { data } = await axios.post(`/users/auth/register/`, userData);
+
+    if (data && data.token) {
+      window.localStorage.setItem('token', data.token);
+    }
+
+    return data;
+
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
+export const axiosGetUser = createAsyncThunk("singup/axiosGetUser", async () => {
+  try {
+    const { data } = await axios.get(`/users/me/profile/`);
+
+    return data;
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const axiosChangeUser = createAsyncThunk("singup/axiosChangeUser", async (userData) => {
+  try {
+    const { data } = await axios.patch(`/users/me/profile/`, userData);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 const initialState = {
   token: "",
