@@ -5,8 +5,8 @@ import Navbar from '../../components/Navbar/Navbar'
 import Header from '../../components/Header/Header'
 const Profile = () => {
 
-  const { user, userData } = useSelector(state => state.singup)
-  console.log(userData)
+  const { user } = useSelector(state => state.singup)
+
   return (
     <>
       <Header />
