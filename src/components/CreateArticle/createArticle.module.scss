@@ -34,9 +34,16 @@
   }
 
   .articleRow {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
+  }
+
+  .counter {
+    position: absolute;
+    right: 10px;
+    top: 52px;
   }
 
   .articleCaption {
@@ -53,7 +60,7 @@
     border-radius: 10px;
     height: 30px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 40px;
     border: 1.5px solid #B5B5B5;
     background: #FFF;
     box-shadow: 0px 0px 15px 0px rgba(150, 150, 150, 0.25);
@@ -67,7 +74,7 @@
     border-radius: 10px;
     height: 110px;
     resize: none;
-    padding: 10px 10px;
+    padding: 25px 10px 10px 10px;
     border: 1.5px solid #B5B5B5;
     background: #FFF;
     box-shadow: 0px 0px 15px 0px rgba(150, 150, 150, 0.25);
