@@ -31,10 +31,10 @@ const Header = () => {
       <div className={style.wrapper}>
         <div className={style.buttonWrapper}>
 
-          <div onClick={() => setIsActive(!isActive)} className={style.button} >
+          <button onClick={() => setIsActive(!isActive)} className={style.button} >
             <img src="/assets/plus.svg" alt="plusIcon" />
             <p>Создать</p>
-          </div>
+          </button>
           {(isActive) &&
             <div className={style.popup}>
               <ul>

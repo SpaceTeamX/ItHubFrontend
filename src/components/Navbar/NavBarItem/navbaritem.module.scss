@@ -1,37 +1,23 @@
-.wrapper {
+@mixin block($color) {
   display: block;
   border-radius: 12px;
   padding: 0 15px;
-  cursor: pointer;
- 
-  border: 2px solid transparent;
-  .btn {
-    display: flex;
-    height: 50px;
-    margin-bottom: 10px;
-    align-items: center;
-    cursor: pointer;
-    p {
-      margin-left: 20px;
-    }
-  }
+  border: 2px solid $color;
+  margin-bottom: 10px;
+}
+
+.wrapper {
+  @include block(transparent)
 }
 
 .active {
-  display: block;
-  border-radius: 12px;
-  cursor: pointer;
-  padding: 0 15px;
+  @include block(#eaeaea);
   background: #fff;
-  border: 2px solid #eaeaea;
-  margin-bottom: 10px;
-  .btn {
-    display: flex;
-    height: 50px;
-    align-items: center;
-    cursor: pointer;
-    p {
-      margin-left: 20px;
-    }
-  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+
+  height: 50px;
 }
