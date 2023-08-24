@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import style from './header.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { setNavItemId } from '../../redux/navBarSlice';
 import { axiosGetUser } from '../../redux/singupSlice';
+import CreateArticle from '../CreateArticle/CreateArticle';
+import style from './header.module.scss'
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const { token, user, isLoggedIn, userData } = useSelector(state => state.singup)
+  const dispatch = useDispatch();
+  const { token, user, isLoggedIn, userData } = useSelector(state => state.singup);
+  const [openModalWindow, setOpenModalWindow] = useState(false)
 
   const handleUserClick = () => {
-    dispatch(setNavItemId(null))
-  }
+    dispatch(setNavItemId(null));
+  };
 
   useEffect(() => {
-    isLoggedIn && dispatch(axiosGetUser(token))
+    isLoggedIn && dispatch(axiosGetUser(token));
   }, [isLoggedIn])
 
-  const [isActive, setIsActive] = useState(false)
-  console.log(isActive)
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <div className={style.header}>
+      {openModalWindow && <CreateArticle setCheckActive={setOpenModalWindow} />}
       <Link to='/'>
         <img className={style.logo} src="/assets/logo.svg" alt="LogoImg" />
       </Link>
@@ -37,7 +40,7 @@ const Header = () => {
               <ul>
                 <li>
                   <img src="/public/assets/Iconly/Light outline/Document.svg" alt="newPostImg" />
-                  <p>Статью</p>
+                  <p onClick={() => setOpenModalWindow(true)}>Статью</p>
                 </li>
                 <li>
                   <img src="/public/assets/Iconly/Light-Outline/Work.svg" alt="workImg" />
