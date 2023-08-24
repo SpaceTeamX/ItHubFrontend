@@ -6,7 +6,6 @@ import style from './news.module.scss'
 
 const News = () => {
 
-
     return (
         <>
             <Header />
