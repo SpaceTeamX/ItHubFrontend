@@ -29,6 +29,7 @@ const App = () => {
           <Route path='/singup' element={<Singup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='*' element={<h1>Ошибка</h1>} />
         </Routes>
       </div>
   );

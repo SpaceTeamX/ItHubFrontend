@@ -14,7 +14,7 @@ const Articles = () => {
                     <Filters />
                     <div className={style.content}>
                         {[...new Array(2)].map((item, index) =>
-                            <ArticleCard />
+                            <ArticleCard key={index}/>
                         )}
                     </div>
                 </div>
