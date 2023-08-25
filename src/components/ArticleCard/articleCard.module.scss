@@ -1,0 +1,47 @@
+.articleContainer {
+    border-radius: 16px;
+    background: #FFF;
+    padding: 20px;
+    margin-bottom: 30px;
+    min-height: 200px;
+
+    .articleHeader {
+        margin-bottom: 10px;
+    }
+
+    .articleHeader>span {
+        margin: 0 10px;
+    }
+
+    .articleMain {
+        margin-bottom: 30px;
+    }
+
+    .articleTitle {
+        color: #464646;
+        font-family: Roboto;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+
+    .articleFooter {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .aticleMenu {
+        display: flex;
+    }
+
+    .articleIcon {
+        margin-right: 10px;
+    }
+
+    .articleIcon>span {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
