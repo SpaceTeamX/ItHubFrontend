@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { axiosChangeUser, setLogout } from '../../../redux/singupSlice';
 import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import style from './profilecard.module.scss';
 
@@ -10,7 +9,7 @@ const ProfileCard = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const userInfo = useSelector(state => state.singup.userData);
+    const userInfo = useSelector(state => state.singup.user);
 
     const [userData, setUserData] = useState({
         login: userInfo?.user.username,
@@ -25,15 +24,13 @@ const ProfileCard = () => {
     const handlLogout = () => {
         localStorage.removeItem('token');
         dispatch(setLogout());
-        navigate("/")
+        navigate("/");
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(axiosChangeUser(userData));
     };
-
-    // const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
         <div className={style.card}>

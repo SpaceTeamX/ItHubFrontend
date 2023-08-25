@@ -5,8 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Header from '../../components/Header/Header'
 const Profile = () => {
 
-  const { user } = useSelector(state => state.singup)
-
+  const userData = useSelector(state => state.singup.user);
   return (
     <>
       <Header />
@@ -17,11 +16,11 @@ const Profile = () => {
             <div className={style.title}>
               <img src="/assets/profileUser.png" alt="userIcon" />
               <div className={style.user}>
-                <p>id: {user.id}</p>
-                <p className={style.username}>{user.username}</p>
+                <p>id: {userData?.id}</p>
+                <p className={style.username}>{userData.user?.username}</p>
               </div>
             </div>
-            <ProfileCard />
+            {userData && <ProfileCard />}
           </div>
         </div>
       </div>
