@@ -57,7 +57,6 @@ export const axiosChangeUser = createAsyncThunk("singup/axiosChangeUser", async 
 const initialState = {
   token: "",
   user: "",
-  userData: "",
   status: "",
   error: "",
   isLoggedIn: false,
@@ -96,12 +95,12 @@ const singUpSice = createSlice({
 
     builder.addCase(axiosGetUser.fulfilled, (state, action) => {
       state.status = "success";
-      state.userData = action.payload;
+      state.user = action.payload;
     });
 
     builder.addCase(axiosChangeUser.fulfilled, (state, action) => {
       state.status = "success";
-      state.userData = action.payload;
+      state.user = action.payload;
     });
 
 
