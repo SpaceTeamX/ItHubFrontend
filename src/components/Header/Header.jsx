@@ -16,8 +16,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    dispatch(axiosGetUser());
-  }, [])
+    localStorage.getItem('token') && dispatch(axiosGetUser());
+  }, []);
 
   const [isActive, setIsActive] = useState(false);
 
@@ -54,7 +54,7 @@ const Header = () => {
         {userData ? (
           <Link to='/profile' onClick={handleUserClick} className={style.login}>
             <img src='/assets/user.svg' alt="user" />
-            <p className={style.login}>{userData.user.username}</p>
+            <p className={style.login}>{userData.user?.username}</p>
           </Link>) : (
           <Link to='/login' className={style.login}>
             <img src='/assets/user.svg' alt="userIcon" />
