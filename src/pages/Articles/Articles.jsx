@@ -1,7 +1,8 @@
-import Filters from '../../components/Filters/Filters'
-import Header from '../../components/Header/Header'
-import Navbar from '../../components/Navbar/Navbar'
-import style from './articles.module.scss'
+import Filters from '../../components/Filters/Filters';
+import Header from '../../components/Header/Header';
+import Navbar from '../../components/Navbar/Navbar';
+import ArticleCard from '../../components/ArticleCard/ArticleCard';
+import style from './articles.module.scss';
 
 const Articles = () => {
     return (
@@ -13,7 +14,7 @@ const Articles = () => {
                     <Filters />
                     <div className={style.content}>
                         {[...new Array(2)].map((item, index) =>
-                            <div className={style.card} key={index}>{item}</div>
+                            <ArticleCard />
                         )}
                     </div>
                 </div>
