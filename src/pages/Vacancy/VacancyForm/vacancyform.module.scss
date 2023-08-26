@@ -2,24 +2,21 @@
   background: #fff;
   border-radius: 12px;
   border: 2px solid #eaeaea;
+
   .vacancyForm {
-    width: 700px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 100px;
+
     h1 {
       color: #464646;
       font-weight: 500;
       font-size: 25px;
       margin: 30px 0 25px 10px;
     }
+
     .form {
       margin-top: 25px;
 
-      h2 {
-        font-size: 16px;
-        color: #666666;
-        margin-left: 10px;
-        margin-bottom: 10px;
-      }
       input {
         width: 100%;
         font-size: 18px;
@@ -29,18 +26,48 @@
         padding: 7px 10px;
       }
     }
-    .formWrapper{
-        display: flex;
 
-    }
-    button{
-        background: #0081BF;
-        color: #fff;
-        font-size: 20px;
-        border-radius: 12px;
-        padding: 10px 20px;
-        margin: 40px 0 30px 0;
-        cursor: pointer;
+    button {
+      background: #0081BF;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin: 40px 0 30px 0;
+      cursor: pointer;
     }
   }
+}
+
+.formWrapper {
+  display: flex;
+  margin-top: 25px;
+  grid-gap: 30px;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    grid-gap: 20px;
+  }
+}
+
+.sectionMenu {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  border: 1px solid #b5b5b5;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666666;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
