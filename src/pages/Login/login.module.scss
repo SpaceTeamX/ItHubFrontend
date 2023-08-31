@@ -11,12 +11,14 @@
     padding: 60px;
     width: 100%;
   }
+
   .imgContainer {
     img {
       border-top-right-radius: 36px;
       border-bottom-right-radius: 36px;
     }
   }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -31,10 +33,12 @@
       font-weight: bold;
       color: #464646;
     }
+
     .error {
       color: red;
     }
   }
+
   .formInputs {
     display: flex;
     flex-direction: column;
@@ -42,6 +46,7 @@
     .errorsField {
       color: red;
     }
+
     .inputss {
       width: 350px;
       height: 55px;
@@ -70,11 +75,8 @@
   justify-content: center;
   width: 30px;
   height: 100%;
-  padding: 10px;
-  margin-top: -11px;
   position: absolute;
-  top: 0;
-  left: 50;
+  margin-left: 5px;
 }
 
 .iconContainer img {
@@ -98,10 +100,12 @@
   right: 0;
   margin-right: 20px;
 }
+
 .createAcc {
-  .error{
+  .error {
     margin-bottom: 20px;
   }
+
   margin-left: 20px;
   margin-bottom: 20px;
   cursor: pointer;

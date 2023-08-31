@@ -4,24 +4,29 @@
   border-radius: 12px;
   border: 2px solid #eaeaea;
   padding: 20px 15px;
-  max-height: 230px;
+  height: fit-content;
+
   h3 {
     color: #464646;
     font-weight: 500;
   }
-  .selectWrap{
+
+  .selectWrap {
     margin-top: 25px;
-    .select{
-        margin-top: 15px;
+
+    .select {
+      margin-top: 15px;
     }
-    label{
-        font-size: 16px;
-      }
+
+    label {
+      font-size: 16px;
+    }
   }
-  .btn{
-    img{
-        width: 20px;
-        height: 20px;
+
+  .btn {
+    img {
+      width: 20px;
+      height: 20px;
     }
   }
 }
