@@ -40,7 +40,7 @@ export const axiosGetUser = createAsyncThunk("singup/axiosGetUser", async () => 
     return data;
 
   } catch (error) {
-    console.log(error);
+    error.response.status === 401 && localStorage.removeItem('token');
   }
 });
 
